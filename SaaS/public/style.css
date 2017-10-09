@@ -1,0 +1,50 @@
+/*gom co 3 phan*/
+/*selector*/ /*property*/ /*value*/
+/*style theo ten the*/
+h1,
+section {color: red;}
+
+/*style theo id cho 1 phan tu duy nhat*/
+#secondli{
+  background: #ffff00;
+}
+
+/*style theo class, co the lap lai nhieu lan*/
+.firstli {
+  background: #ffff00;
+}
+
+.blurred-text{
+  color: rgba(0,0,0,0.2);
+}
+
+.font_family_demo {
+       font-family: "Comic Sans MS";
+     }
+
+
+/*style theo attribute*/
+[type="text"]{
+  border: 1px solid red;
+  /*gop 3 gia tri borderwidth borderstyle va bordercolor*/
+}
+
+/*style theo trang thai,sau dau : la trang thai*/
+li:hover{
+  text-shadow: 1px 1px blue;
+  /*do bong khi dua chuot len doi voi nhung the li*/
+}
+
+/*active la click len se hien trang thai, chi co link va button moi co trang thai nay*/
+a:active{
+  font-weight: bold;
+}
+
+input:focus{
+  border-radius: 6px;
+  /*bo tron goc*/
+}
+
+img {
+  border-radius: 100px;
+}
