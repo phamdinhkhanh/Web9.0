@@ -1,6 +1,13 @@
+*,
+*:before,
+*:after{
+    box-sizing: border-box;
+}
+
+
 /*gom co 3 phan*/
 /*selector*/ /*property*/ /*value*/
-/*style theo ten the*/
+/*1.style theo ten the*/
 h1,
 section {color: red;}
 
@@ -9,7 +16,7 @@ section {color: red;}
   background: #ffff00;
 }
 
-/*style theo class, co the lap lai nhieu lan*/
+/*2.style theo class, co the lap lai nhieu lan*/
 .firstli {
   background: #ffff00;
 }
@@ -23,13 +30,13 @@ section {color: red;}
      }
 
 
-/*style theo attribute*/
+/*3.style theo attribute*/
 [type="text"]{
   border: 1px solid red;
   /*gop 3 gia tri borderwidth borderstyle va bordercolor*/
 }
 
-/*style theo trang thai,sau dau : la trang thai*/
+/*4.style theo trang thai,sau dau : la trang thai*/
 li:hover{
   text-shadow: 1px 1px blue;
   /*do bong khi dua chuot len doi voi nhung the li*/
@@ -47,4 +54,18 @@ input:focus{
 
 img {
   border-radius: 100px;
+}
+
+/*5. Style theo quan he cha con*/
+/*chi style doi voi li nam trong ol, quan he cha con*/
+ol li {
+  font-family: "Comic Sans MS";
+  border-bottom: 1px solid blue
+}
+ol li:last-child{
+  border:0 none;
+}
+/*quan he cha con truc tiep, chi nhung con truc tiep moi duoc huong*/
+ol > li {
+  width: 400px;
 }

@@ -1,0 +1,71 @@
+
+/*chinh line height de can giua dong*/
+/*.menu span {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background: #9CD08F;
+  color: #402E2A;
+  font-weight: bold;
+}
+
+.menu_vertical span {
+
+
+
+  display: block;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background: #9CD08F;
+  color: #402E2A;
+  border-bottom: 1px solid white;
+}
+
+
+span:hover{
+  background: #D5B0AC;
+  color: #FFFFFF;
+  cursor: pointer;
+}*/
+
+.menu {
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  height: 30px;
+  background: #9CD08F;
+  color: #402E2A;
+}
+
+.menu span {
+  margin-right: 50px;
+}
+
+.menu span:hover{
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+.menu span:hover ~ .menu_vertical {
+  display: block;
+  color: white;
+}
+
+.menu_vertical {
+  display: block;
+  width: 100px;
+}
+
+.menu_vertical span{
+  display: block;
+  margin-right: 0px;
+  border-bottom: 1px solid white;
+  /*width: 100px;*/
+  background: #9CD08F;
+  color: #402E2A;
+}
