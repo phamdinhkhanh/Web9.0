@@ -10,37 +10,71 @@
   width: 100px;
   text-align: center;
   cursor: pointer;
-  background: #D5HBGD;
+  background: green;
   transition: color 0.2s linear, background-color 0.2s linear;
   position: relative;
 }
 
 .menu span:hover{
-  background: #MN6U89;
-  color: #D78TGH;
+  background: blue;
+  color: white;
 }
 
 .menu span > nav {
-  display: inline-block;
-  background-color: initial;
+  display: none;
   position: absolute;
-  opacity: 0;
-  transition: opacity 0.2s linear;
-  z-index: 20;
+  top:0;
   left: 100%;
-  top: 0;
-  transform: translateX(1px); }
-  .menu span > nav > span {
-    display: block;
-    width: 100px;
-    height: 30px;
-    margin-bottom: 1px; }
-    .menu span > nav > span:last-child {
-      margin-bottom: 0; }
+  transform: translateX(1px);
+}
 
-      .menu span:hover > nav {
-        opacity: 1; }
-    .menu > span > nav {
-      left: 0;
-      top: 100%;
-      transform: translateY(1px); }
+
+.menu > span > nav {
+  left: 0;
+}
+
+.menu span:hover > nav{
+  display: block;
+}
+
+.menu span > nav > span {
+  display: block;
+  margin-bottom: 1px; }
+.menu span > nav > span:last-child {
+  margin-bottom: 0; }
+
+.menu span:hover > nav {
+  opacity: 1; }
+
+.menu > span > nav {
+  left: 0;
+  top: 100%;
+  transform: translateY(1px); }
+
+/*
+.menu span > nav {
+display: inline-block;
+background-color: initial;
+position: absolute;
+opacity: 0;
+transition: opacity 0.2s linear;
+z-index: 20;
+left: 100%;
+top: 0;
+transform: translateX(1px); }
+*/
+/*
+.menu span > nav > span {
+  display: block;
+  width: 100px;
+  height: 30px;
+  margin-bottom: 1px; }
+.menu span > nav > span:last-child {
+  margin-bottom: 0; }
+
+  .menu span:hover > nav {
+    opacity: 1; }
+.menu > span > nav {
+  left: 0;
+  top: 100%;
+  transform: translateY(1px); }*/

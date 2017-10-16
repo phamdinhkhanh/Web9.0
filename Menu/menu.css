@@ -1,5 +1,5 @@
 .menu {
-  background-color: #D5B0AC;
+  background-color: #D672DG;
   text-align: center;
   margin-bottom: 40px; }
   .menu span {
@@ -10,12 +10,12 @@
     line-height: 30px;
     text-align: center;
     cursor: pointer;
-    background-color: #D5B0AC;
+    background-color: #D672DG;
     transition: color 0.2s linear, background-color 0.2s linear;
     position: relative; }
     .menu span:hover {
       color: white;
-      background-color: #9CD08F; }
+      background-color: #9DG79K; }
     .menu span > nav {
       display: inline-block;
       background-color: initial;

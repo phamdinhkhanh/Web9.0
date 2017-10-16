@@ -3,13 +3,18 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const fileController = require('./fileController');
-const outputFileName = "test.json";
+const outputFileName = "question.json";
+const bodyParser = require('body-parser');
+const viewRouter = require('./router');
+const questionRouter = require('./questionRouter');
+const exhbs = require('express-handlebars');
+
 
 
 console.log(path.join(__dirname, "../public/style.css"));
 let fileString = "Hello World"
 let result = fileController.readDataFromFile(outputFileName)
-console.log(result);
+// console.log(result);
 
 
 let testObject = {
@@ -17,33 +22,26 @@ let testObject = {
   test2:"test2"
 }
 
-
-fileController.writeDataToFile(outputFileName,testObject)
-//
-// let result2 = fs.writeFileSync("test.json",
-// JSON.stringify(testObject),
-// {endcoding:"utf-8"})
-//
-// // Javascript Object Notation
-//
-// let readFile = fs.readFileSync("test.json","utf-8");
-// console.log(readFile)
-//
-// let convertObject = JSON.parse(readFile);
-// console.log(convertObject);
-//
-// let readFileAsync = fs.readFile("test.json","utf-8",(err,data) => {
-//   console.log(data);
-// });
-// console.log("result", readFileAsync);
-
 let app = express();
+app.use(bodyParser.urlencoded({extended: true}));
+app.engine("handlebars",exhbs({defaultLayout:"main"}));
+app.set("view engine","handlebars");
+
+
 app.get('/',(req,res) => {
-  res.sendFile(__dirname +"/public/index.html")
+  // res.sendFile(__dirname +"/public/menu.html")
+  res.render("home");
 });
 
+
+app.get('/menu.css',(req,res) => {
+  res.sendFile(__dirname+"/views/layouts/menu.css")
+})
+
+
 app.get('/about', (req,res) => {
-  res.send("I'm Khanh")
+  // res.sendFile(__dirname+"/public/about.html")
+  res.render("about");
 })
 
 app.get('/testhtml', (req,res) => {
@@ -66,6 +64,76 @@ app.get('/about.html',(req,res) => {
   res.sendFile(__dirname+"/public/about.html")
 })
 
+
+app.use('/ask', viewRouter);
+
+app.get('/question/question.css',(req,res) => {
+  res.sendFile(__dirname+"/views/question.css");
+})
+
+app.get('/question/menu.css',(req,res) => {
+  res.sendFile(__dirname+"/views/layouts/menu.css")
+})
+
+app.use('/question', questionRouter);
+
+app.get('/ask.css',(req,res) => {
+  res.sendFile(__dirname+"/public/ask.css")
+})
+
+app.get('/question.css',(req,res) => {
+  res.sendFile(__dirname+"/views/question.css")
+})
+
+
+// app.get('/question',(req,res) => {
+//   res.render("question");
+// })
+
+app.get('/home',(req,res) => {
+  res.sendFile(__dirname+"/public/index.html");
+})
+
+// app.use('/questionPost',questionPostRouter);
+
+app.get('/questionLast',(req,res) => {
+  let questionList = fileController.readDataFromFile(outputFileName);
+  let question = questionList[questionList.length-1];
+  res.render("question",
+    {question: question.question,
+      yes:question.yes,
+      no:question.no
+      // layout = "test"
+  });
+})
+
+app.post('/question',(req,res) => {
+  let questionList = [];
+  try{
+    questionList = fileController.readDataFromFile(outputFileName);
+  } catch(ex){
+    console.log(ex);
+    questionList = [];
+  }
+  let newQuestion = {
+    question : req.body.question,
+    yes:0,
+    no:0,
+  }
+  // console.log(questionList);
+  questionList.push(newQuestion);
+  fileController.writeDataToFile(outputFileName,questionList);
+  // app.use('/question', questionRouter);
+  res.redirect('/questionLast');
+  // questionRouter.get('/${id}')
+  // console.log(`/question/${id}`);
+  // res.redirect(`/question/${id}`);
+})
+
+//
+// router.get('/ask/question');
+// router.get('/ask/postabout');
+
 app.listen(6969,(err)=>{
   if (err) {
     console.log(err);
@@ -73,5 +141,3 @@ app.listen(6969,(err)=>{
     console.log("website is up");
   }
 })
-
-console.log("Hello World Im khanh 238479q37");
