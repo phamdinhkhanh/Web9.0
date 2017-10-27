@@ -38,12 +38,4 @@ router.post('/:id', (req, res) => {
   });
 });
 
-router.post('/like/:id',(req, res) => {
-  let id = req.params.id;
-  questionController.updateLikeQuestion(id, (err, doc) => {
-    console.log("after like", doc);
-    res.redirect(`/question/${doc._id}`);
-  })
-});
-
 module.exports = router;

@@ -8,7 +8,7 @@ router.get('/ask', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-  res.render("home");
+  res.render("question");
 });
 
 router.get('/style.css', (req, res) => {
