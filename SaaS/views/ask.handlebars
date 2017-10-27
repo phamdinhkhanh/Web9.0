@@ -1,0 +1,11 @@
+<h2 class="mt-3">Hỏi cộng đồng một câu đúng hoặc sai/Có hoặc không?</h2>
+
+<form method="post" action="/question">
+  <textarea class="form-control" id="ask-textarea" name="question" rows="7" maxlength="200"
+  onchange="onTextChange"></textarea>
+  <p class="text-muted">Còn <span id="remaining-chars"> 200 </span>/200 ký tự</p>
+  <button type="submit" class="btn btn-primary">Gửi</button>
+</form>
+
+<script src="/ask.js" type="text/javascript">
+</script>

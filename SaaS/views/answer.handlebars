@@ -1,0 +1,18 @@
+<div>
+  Question : {{question}}
+</div>
+<div>
+  Yes : {{yes}}
+</div>
+<div>
+  No : {{no}}
+</div>
+
+<form method="post" action="/question/{{id}}" >
+  <div>
+    <input type="submit" class="btn btn-primary mr-5" value="yes" name="yes">Yes</input>
+  </div>
+  <div>
+    <input type="submit" class="btn btn-danger" value="no" name="no">No</input>
+  </div>
+</form>

@@ -1,7 +1,7 @@
 {
-  "name": "khanhphamdinh",
+  "name": "saas",
   "version": "1.0.0",
-  "description": "website tra loi cau hoi",
+  "description": "day la website tra loi cau hoi",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,8 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.1",
+    "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
-    "math": "0.0.3"
+    "mongoose": "^4.12.4"
+  },
+  "devDependencies": {
+    "jasmine": "^2.8.0"
   }
 }

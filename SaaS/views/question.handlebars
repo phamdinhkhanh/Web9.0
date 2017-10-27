@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>question</title>
-    <link rel="stylesheet" type="text/css" href="question.css">
-  </head>
-  <body>
-    <div class="paragraph">
-      <p class="question">
-        Question: {{question}}
-      </p>
-
-      <p class="choice">
-        <span>Yes:{{yes}}</span>
-        <span>No:{{no}}</span>
-      </p>
-
-      <form class="form" action="/question/questionYesResponse" method="post">
-        <input class = "submit" type="submit" name="Yes" value="Yes">
-      <form>
-      <form class="form" action="/question/questionNoResponse" method="post">
-        <input class = "submit" type="submit" name="No" value="No">
-      </form>
-
+<div>
+  <h2 class="text-center mt-5">{{question}}</h2>
+  <p>Yes:{{yes}}</p>
+  <p>No:{{No}}</p>
+  <form method="post" action="/question/{{id}}" >
+    <div>
+      <input type="submit" class="btn btn-primary mr-5" value="yes" name="yes">Yes</input>
     </div>
-  </body>
-</html>
+    <div>
+      <input type="submit" class="btn btn-danger" value="no" name="no">No</input>
+    </div>
+  </form>
+
+  <form action="/question/like/{{id}}" method="post">
+    <div>
+      <input type="submit" class="btn btn-primary" value="like" name="like" >Like</input>
+    </div>
+  </form>
+</div>
